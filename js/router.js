@@ -140,10 +140,13 @@
        */      
        var newPageId=$(page).attr("id");
        $("#"+newPageId).remove();
-       /**
-        *  end added 
-        */
-            page.insertAfter($(".page")[0]);
+        if($(".page")[0])
+          page.insertAfter($(".page")[0]);
+      else
+    	  page.appendTo($("body")[0]);
+      /**
+       *  end added 
+       */
             this.animatePages(this.getCurrentPage(), page);
 
             var id = this.genStateID();
